@@ -1,0 +1,16 @@
+---
+id: berlin-lor-geodata
+name: Berlin LOR geodata
+metadata:
+  - ownership:
+  - schema:
+description:
+input_ports:
+output_ports:
+metrics:
+  - quality:
+  - operational:
+classification:
+tags:
+  - berlin
+  - geodata
