@@ -6,6 +6,69 @@ metadata:
   - schema:
 description:
 input_ports:
+  - id: berlin-lor-districts
+    metadata:
+      name: Bezirke
+      author: Geoportal Berlin
+      url: https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/
+      license:
+      updated: 2017-12-31
+    files:
+      - https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson
+  - id: berlin-lor-forecast-areas-until-2020
+    metadata:
+      name: Lebensweltlich orientierte Räume (LOR) - Prognoseräume (bis Ende 2020)
+      author: Amt für Statistik Berlin-Brandenburg
+      url: https://daten.odis-berlin.de/de/dataset/lor_prognoseraeume/
+      license:  CC-BY-3.0-Namensnennung
+      updated: 2021-09-09
+    files:
+      - https://tsb-opendata.s3.eu-central-1.amazonaws.com/lor_prognoseraeume/lor_prognoseraeume.geojson
+  - id: berlin-lor-forecast-areas-from-2021
+    metadata:
+      name: Lebensweltlich orientierte Räume (LOR) - Prognoseräume (ab 2021)
+      author: Amt für Statistik Berlin-Brandenburg
+      url: https://daten.odis-berlin.de/de/dataset/lor_prognoseraeume_2021/
+      license: CC-BY-3.0-Namensnennung
+      updated: 2021-09-09
+    files:
+      - https://tsb-opendata.s3.eu-central-1.amazonaws.com/lor_prognoseraeume_2021/lor_prognoseraeume_2021.geojson
+  - id: berlin-lor-district-regions-until-2020
+    metadata:
+      name: Lebensweltlich orientierte Räume (LOR) - Bezirksregionen (bis Ende 2020)
+      author: Amt für Statistik Berlin-Brandenburg
+      url: https://daten.odis-berlin.de/de/dataset/lor_bezirksregionen/
+      license: CC-BY-3.0-Namensnennung
+      updated: 2021-09-09
+    files:
+      - https://tsb-opendata.s3.eu-central-1.amazonaws.com/lor_bezirksregionen/lor_bezirksregionen.geojson
+  - id: berlin-lor-district-regions-from-2021
+    metadata:
+      name: Lebensweltlich orientierte Räume (LOR) - Bezirksregionen (seit 2021)
+      author: Amt für Statistik Berlin-Brandenburg
+      url: https://daten.odis-berlin.de/de/dataset/lor_bezirksregionen/
+      license: CC-BY-3.0-Namensnennung
+      updated: 2021-09-09
+    files:
+      - https://tsb-opendata.s3.eu-central-1.amazonaws.com/lor_bezirksregionen_2021/lor_bezirksregionen_2021.geojson
+  - id: berlin-lor-planning-areas-until-2020
+    metadata:
+      name: Lebensweltlich orientierte Räume (LOR) - Planungsräume (bis Ende 2020)
+      author: Amt für Statistik Berlin-Brandenburg
+      url: https://daten.odis-berlin.de/de/dataset/lor_bezirksregionen/
+      license: CC-BY-3.0-Namensnennung
+      updated: 2021-09-09
+    files:
+      - https://tsb-opendata.s3.eu-central-1.amazonaws.com/lor_planungsgraeume/lor_planungsraeume.geojson
+  - id: berlin-lor-planning-areas-from-2021
+    metadata:
+      name: Lebensweltlich orientierte Räume (LOR) - Planungsräume (bis Ende 2020)
+      author: Amt für Statistik Berlin-Brandenburg
+      url: https://daten.odis-berlin.de/de/dataset/lor_bezirksregionen/
+      license: CC-BY-3.0-Namensnennung
+      updated: 2021-09-09
+    files:
+      - https://tsb-opendata.s3.eu-central-1.amazonaws.com/lor_planungsgraeume_2021/lor_planungsraeume_2021.geojson
 output_ports:
 metrics:
   - quality:
