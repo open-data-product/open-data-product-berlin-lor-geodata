@@ -40,6 +40,7 @@ def main(argv):
     manifest_path = os.path.join(script_path, "data-product.yml")
     raw_path = os.path.join(script_path, "raw")
     workspace_path = os.path.join(script_path, "workspace")
+    data_path = os.path.join(script_path, "data")
 
     #
     # Extract
@@ -54,6 +55,7 @@ def main(argv):
     copy_data(source_path=raw_path, results_path=workspace_path, clean=clean, quiet=quiet)
     clean_data(source_path=workspace_path, results_path=workspace_path, clean=clean, quiet=quiet)
     convert_projection(source_path=workspace_path, results_path=workspace_path, clean=clean, quiet=quiet)
+    convert_bounding_box(source_path=workspace_path, results_path=workspace_path, clean=clean, quiet=quiet)
 
 
 if __name__ == "__main__":
