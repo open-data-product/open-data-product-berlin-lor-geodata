@@ -19,22 +19,22 @@ def clean_data(source_path, results_path, clean=False, quiet=False):
             source_file_path = os.path.join(source_path, subdir, file_name)
             results_file_path = os.path.join(results_path, subdir, file_name)
 
-            with open(source_file_path, "r") as geojson_file:
-                geojson = json.load(geojson_file)
+            with open(source_file_path, "r", encoding="utf-8") as geojson_file:
+                geojson = json.load(geojson_file, strict=False)
 
             changed = False
             changed |= unify_properties(geojson)
             changed |= clean_geometry(geojson, quiet)
 
             if changed:
-                with open(results_file_path, "w") as geojson_file:
-                    json.dump(geojson, geojson_file)
+                with open(results_file_path, "w", encoding="utf-8") as geojson_file:
+                    json.dump(geojson, geojson_file, ensure_ascii=False)
 
                     if not quiet:
-                        print(f"✓ Clean {results_file_path}")
+                        print(f"✓ Clean {file_name}")
             else:
                 if not quiet:
-                    print(f"✓ Already cleaned {results_file_path}")
+                    print(f"✓ Already cleaned {file_name}")
 
 
 def unify_properties(geojson):

@@ -30,13 +30,14 @@ def extract_data(manifest_path, results_path, clean=False, quiet=False):
                 # Download file
                 download_file(
                     file_path=file_path,
+                    file_name=file_name,
                     url=url,
                     clean=clean,
                     quiet=quiet
                 )
 
 
-def download_file(file_path, url, clean, quiet):
+def download_file(file_path, file_name, url, clean, quiet):
     # Check if result needs to be generated
     if clean or not os.path.exists(file_path):
         try:
@@ -45,7 +46,7 @@ def download_file(file_path, url, clean, quiet):
                 with open(file_path, "wb") as file:
                     file.write(data.content)
                 if not quiet:
-                    print(f"✓ Download {file_path}")
+                    print(f"✓ Download {file_name}")
             elif not quiet:
                 print(f"✗️ Error: {str(data.status_code)}, url {url}")
         except Exception as e:
@@ -53,4 +54,4 @@ def download_file(file_path, url, clean, quiet):
             return None
 
     elif not quiet:
-        print(f"✓ Already exists {file_path}")
+        print(f"✓ Already exists {file_name}")

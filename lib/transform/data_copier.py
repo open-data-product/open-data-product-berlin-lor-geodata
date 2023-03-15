@@ -19,13 +19,13 @@ def copy_data(source_path, results_path, clean=False, quiet=False):
 
             # Check if file needs to be copied
             if clean or not os.path.exists(results_file_path):
-                with open(source_file_path, "r") as geojson_file:
-                    geojson = json.load(geojson_file)
+                with open(source_file_path, "r", encoding="utf-8") as geojson_file:
+                    geojson = json.load(geojson_file, strict=False)
 
-                with open(results_file_path, "w") as geojson_file:
-                    json.dump(geojson, geojson_file)
+                with open(results_file_path, "w", encoding="utf-8") as geojson_file:
+                    json.dump(geojson, geojson_file, ensure_ascii=False)
 
                     if not quiet:
-                        print(f"✓ Copy {results_file_path}")
+                        print(f"✓ Copy {file_name}")
             else:
-                print(f"✓ Already exists {results_file_path}")
+                print(f"✓ Already exists {file_name}")

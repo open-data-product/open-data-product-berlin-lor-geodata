@@ -20,16 +20,16 @@ def convert_bounding_box(source_path, results_path, clean=False, quiet=False):
             source_file_path = os.path.join(source_path, subdir, file_name)
             results_file_path = os.path.join(results_path, subdir, file_name)
 
-            with open(source_file_path, "r") as geojson_file:
-                geojson = json.load(geojson_file)
+            with open(source_file_path, "r", encoding="utf-8") as geojson_file:
+                geojson = json.load(geojson_file, strict=False)
                 projection = str(geojson["crs"]["properties"]["name"])
                 projection_number = projection.split(":")[-1]
 
                 if projection_number == target_projection_number or projection_number == "CRS84":
                     geojson_with_bounding_box = extend_by_bounding_box(geojson, clean)
 
-                    with open(results_file_path, "w") as geojson_file:
-                        json.dump(geojson_with_bounding_box, geojson_file)
+                    with open(results_file_path, "w", encoding="utf-8") as geojson_file:
+                        json.dump(geojson_with_bounding_box, geojson_file, ensure_ascii=False)
 
                 if not quiet:
                     print(f"✓ Convert {file_name}")
