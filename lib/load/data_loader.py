@@ -34,7 +34,7 @@ def load_data(source_path, results_path, clean=False, quiet=False):
 
 def get_target_file_name(source_file_name):
     if source_file_name == "bezirksgrenzen.geojson":
-        return "berlin-lor-districts.geoson"
+        return "berlin-lor-districts.geojson"
     elif source_file_name == "lor_prognoseraeume.geojson":
         return "berlin-lor-forecast-areas-until-2020.geojson"
     elif source_file_name == "lor_prognoseraeume_2021.geojson":
