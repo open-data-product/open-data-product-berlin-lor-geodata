@@ -2,9 +2,14 @@
 id: berlin-lor-geodata
 name: Berlin LOR geodata
 metadata:
-  - ownership:
+  - ownership: Open Lifeworlds
+  - domain: geodata
   - schema:
-description:
+      id: unique feature ID (string)
+      name: feature name (string)
+      area: feature area in sqm (float)
+      bounding_box: feature bounding box (float array)
+description: This data products provides Berlin geodata on different LOR hierarchy levels
 input_ports:
   - id: berlin-lor-districts
     metadata:
@@ -70,10 +75,27 @@ input_ports:
     files:
       - https://tsb-opendata.s3.eu-central-1.amazonaws.com/lor_planungsgraeume_2021/lor_planungsraeume_2021.geojson
 output_ports:
+  - id: berlin-lor-districts
+    metadata:
+      name: Berlin LOR districts
+      author: Open Lifeworlds
+      url: https://github.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/tree/main/data
+      license: CC-BY-4.0
+      updated: 2023-07-22
+    files:
+      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-districts/berlin-lor-districts.geojson
+      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-forecast-areas-until-2020/berlin-lor-forecast-areas-until-2020.geojson
+      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-forecast-areas-from-2021/berlin-lor-forecast-areas-from-2021.geojson
+      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-district-regions-until-2020/berlin-lor-district-regions-until-2020.geojson
+      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-district-regions-from-2021/berlin-lor-district-regions-from-2021.geojson
+      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-until-2020/berlin-lor-planning-areas-until-2020.geojson
+      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-from-2021/berlin-lor-planning-areas-from-2021.geojson
 metrics:
   - quality:
+      completeness
   - operational:
-classification:
+classification: source-aligned
 tags:
   - berlin
+  - lor
   - geodata
