@@ -20,7 +20,7 @@ def clean_data_properties(source_path, results_path, clean=False, quiet=False):
             with open(source_file_path, "r", encoding="utf-8") as geojson_file:
                 geojson = json.load(geojson_file, strict=False)
 
-            geojson, changed = unify_properties(geojson)
+            geojson, changed = clean_properties(geojson)
 
             if changed:
                 with open(results_file_path, "w", encoding="utf-8") as geojson_file:
@@ -33,7 +33,7 @@ def clean_data_properties(source_path, results_path, clean=False, quiet=False):
                     print(f"✓ Already cleaned {file_name}")
 
 
-def unify_properties(geojson):
+def clean_properties(geojson):
     changed = False
 
     for feature in geojson["features"]:

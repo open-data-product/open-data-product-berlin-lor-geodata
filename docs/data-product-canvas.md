@@ -20,9 +20,9 @@ This data product uses LOR geodata provided by [Amt für Statistik Berlin-Brande
 statements, or used data platform services.**
 
 This data product
-* [cleans geojson features](../lib/transform/data_cleaner.py) by
-  * removing exclaves (that prevent rendering using map services such as [Mapbox](https://www.mapbox.com/))
-  * unifying properties such as `id`, `name` and `area` across all files 
+* [cleans geojson features](../lib/transform/data_property_cleaner.py) by applying properties such as `id`, `name` and `area` across all files 
+* [cleans geoson geometry](../lib/transform/data_geometry_cleaner.py) by removing exclaves (that prevent rendering using map services such as [Mapbox](https://www.mapbox.com/))
+* [extends properties](../lib/transform/data_property_extender.py) by adding missing area property 
 * [converts geojson coordinate projection](../lib/transform/data_projection_converter.py) to polar coordinates (epsg:4326)
 * [calculates a bounding box](../lib/transform/data_bounding_box_converter.py) for each feature based on their coordinates
 
