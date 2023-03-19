@@ -5,11 +5,11 @@ metadata:
   - ownership: Open Lifeworlds
   - domain: geodata
   - schema:
-      id: unique feature ID (string)
-      name: feature name (string)
-      area: feature area in sqm (float)
-      bounding_box: feature bounding box (float array)
-description: This data products provides Berlin geodata on different LOR hierarchy levels
+      - id: unique feature ID (string)
+      - name: feature name (string)
+      - area: feature area in sqm (float)
+      - bounding_box: feature bounding box (float array)
+description: This data product provides Berlin geodata on different LOR hierarchy levels
 input_ports:
   - id: berlin-lor-districts
     metadata:
@@ -75,9 +75,9 @@ input_ports:
     files:
       - https://tsb-opendata.s3.eu-central-1.amazonaws.com/lor_planungsgraeume_2021/lor_planungsraeume_2021.geojson
 output_ports:
-  - id: berlin-lor-districts
+  - id: berlin-lor-geodata
     metadata:
-      name: Berlin LOR districts
+      name: Berlin LOR geodata
       author: Open Lifeworlds
       url: https://github.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/tree/main/data
       license: CC-BY-4.0
@@ -92,7 +92,7 @@ output_ports:
       - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-from-2021/berlin-lor-planning-areas-from-2021.geojson
 metrics:
   - quality:
-      completeness
+      - completeness
   - operational:
 classification: source-aligned
 tags:
