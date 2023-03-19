@@ -7,7 +7,7 @@ from lib.tracking_decorator import TrackingDecorator
 
 
 @TrackingDecorator.track_time
-def clean_data(source_path, results_path, clean=False, quiet=False):
+def clean_data_geometry(source_path, results_path, clean=False, quiet=False):
     # Iterate over files
     for subdir, dirs, files in os.walk(source_path):
         for file_name in files:
@@ -22,9 +22,7 @@ def clean_data(source_path, results_path, clean=False, quiet=False):
             with open(source_file_path, "r", encoding="utf-8") as geojson_file:
                 geojson = json.load(geojson_file, strict=False)
 
-            changed = False
-            changed |= unify_properties(geojson)
-            changed |= clean_geometry(geojson, quiet)
+            geojson, changed = clean_geometry(geojson, quiet)
 
             if changed:
                 with open(results_file_path, "w", encoding="utf-8") as geojson_file:
@@ -35,52 +33,6 @@ def clean_data(source_path, results_path, clean=False, quiet=False):
             else:
                 if not quiet:
                     print(f"✓ Already cleaned {file_name}")
-
-
-def unify_properties(geojson):
-    changed = False
-
-    for feature in geojson["features"]:
-        properties = feature["properties"]
-
-        id = None
-        name = None
-        area = None
-
-        # Iterate over potential ID properties
-        for id_property in ["Gemeinde_schluessel", "broker Dow", "PGR_ID", "BZR_ID", "PLR_ID"]:
-            if id_property in properties:
-                id = properties[id_property]
-
-                if id_property == "Gemeinde_schluessel":
-                    id = id[1:]
-
-                properties.pop(id_property, None)
-
-        # Iterate over potential name properties
-        for name_property in ["Gemeinde_name", "PROGNOSERA", "PGR_NAME", "BEZIRKSREG", "BZR_NAME", "PLANUNGSRA",
-                              "PLR_NAME"]:
-            if name_property in properties:
-                name = properties[name_property]
-                properties.pop(name_property, None)
-
-        # Iterate over potential area properties
-        for area_property in ["FLAECHENGR", "GROESSE_m2", "GROESSE_M2"]:
-            if area_property in properties:
-                area = properties[area_property]
-                properties.pop(area_property, None)
-
-        if id is not None:
-            properties["id"] = id
-            changed = True
-        if name is not None:
-            properties["name"] = name
-            changed = True
-        if area is not None:
-            properties["area"] = area
-            changed = True
-
-    return changed
 
 
 def clean_geometry(geojson, quiet):
@@ -112,7 +64,7 @@ def clean_geometry(geojson, quiet):
         if get_depth(feature["geometry"]["coordinates"]) != 4 and not quiet:
             print(f"⚠ Invalid geometry of {id} {name}")
 
-    return changed
+    return geojson, changed
 
 
 # Thanks https://stackoverflow.com/a/6040217/2992219
