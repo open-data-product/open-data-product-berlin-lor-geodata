@@ -1,7 +1,7 @@
 {
-  "id": "berlin-lor-planning-areas-fill",
+  "id": "planning-areas-fill",
   "type": "fill",
-  "source": "berlin-lor-planning-areas",
+  "source": "planning-areas",
   "layout": {},
   "paint": {
     "fill-color": "transparent",

@@ -1,7 +1,7 @@
 {
-  "id": "berlin-lor-districts-fill",
+  "id": "districts-fill",
   "type": "fill",
-  "source": "berlin-lor-districts",
+  "source": "districts",
   "layout": {},
   "paint": {
     "fill-color": "#9E287C",

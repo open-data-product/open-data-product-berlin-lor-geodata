@@ -1,7 +1,7 @@
 {
-  "id": "berlin-lor-district-regions-line",
+  "id": "district-regions-line",
   "type": "line",
-  "source": "berlin-lor-district-regions",
+  "source": "district-regions",
   "layout": {},
   "paint": {
     "line-color": "#D16639",

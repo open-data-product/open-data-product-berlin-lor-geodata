@@ -1,7 +1,7 @@
 {
-  "id": "berlin-lor-forecast-areas-centroid-symbol",
+  "id": "forecast-areas-centroid-symbol",
   "type": "symbol",
-  "source": "berlin-lor-forecast-areas-labels",
+  "source": "forecast-areas-labels",
   "layout": {
     "text-field": [
       "get",

@@ -1,7 +1,7 @@
 {
-  "id": "berlin-lor-planning-areas-centroid-symbol",
+  "id": "planning-areas-centroid-symbol",
   "type": "symbol",
-  "source": "berlin-lor-planning-areas-labels",
+  "source": "planning-areas-labels",
   "layout": {
     "text-field": [
       "get",

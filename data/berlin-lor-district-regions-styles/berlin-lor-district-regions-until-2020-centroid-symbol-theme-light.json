@@ -1,7 +1,7 @@
 {
-  "id": "berlin-lor-district-regions-centroid-symbol",
+  "id": "district-regions-centroid-symbol",
   "type": "symbol",
-  "source": "berlin-lor-district-regions-labels",
+  "source": "district-regions-labels",
   "layout": {
     "text-field": [
       "get",
