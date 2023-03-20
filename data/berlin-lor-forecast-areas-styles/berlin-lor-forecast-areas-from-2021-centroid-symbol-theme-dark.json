@@ -1,0 +1,23 @@
+{
+  "id": "berlin-lor-forecast-areas-centroid-symbol",
+  "type": "symbol",
+  "source": "berlin-lor-forecast-areas-labels",
+  "layout": {
+    "text-field": [
+      "get",
+      "id"
+    ],
+    "text-variable-anchor": [
+      "center"
+    ],
+    "text-justify": "auto",
+    "text-transform": "uppercase",
+    "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+    "text-size": 24
+  },
+  "paint": {
+    "text-color": "#83BE95",
+    "text-halo-color": "#424242",
+    "text-halo-width": 1
+  }
+}

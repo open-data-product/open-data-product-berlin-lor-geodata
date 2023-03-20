@@ -1,0 +1,11 @@
+{
+  "id": "berlin-lor-districts-line",
+  "type": "line",
+  "source": "berlin-lor-districts",
+  "layout": {},
+  "paint": {
+    "line-color": "#9E287C",
+    "line-opacity": 1.0,
+    "line-width": 6
+  }
+}

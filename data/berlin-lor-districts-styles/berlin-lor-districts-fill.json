@@ -1,0 +1,10 @@
+{
+  "id": "berlin-lor-districts-fill",
+  "type": "fill",
+  "source": "berlin-lor-districts",
+  "layout": {},
+  "paint": {
+    "fill-color": "transparent",
+    "fill-opacity": 0.15
+  }
+}

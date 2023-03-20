@@ -1,0 +1,22 @@
+{
+  "id": "berlin-lor-districts-centroid-symbol",
+  "type": "symbol",
+  "source": "berlin-lor-districts-labels",
+  "layout": {
+    "text-field": [
+      "get",
+      "name"
+    ],
+    "text-variable-anchor": [
+      "center"
+    ],
+    "text-justify": "auto",
+    "text-transform": "uppercase",
+    "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"]
+  },
+  "paint": {
+    "text-color": "#9E287C",
+    "text-halo-color": "#424242",
+    "text-halo-width": 1
+  }
+}

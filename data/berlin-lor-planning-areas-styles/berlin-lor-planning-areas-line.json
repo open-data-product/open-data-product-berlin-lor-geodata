@@ -1,0 +1,11 @@
+{
+  "id": "berlin-lor-planning-areas-line",
+  "type": "line",
+  "source": "berlin-lor-planning-areas",
+  "layout": {},
+  "paint": {
+    "line-color": "#0C87BF",
+    "line-opacity": 1.0,
+    "line-width": 1
+  }
+}

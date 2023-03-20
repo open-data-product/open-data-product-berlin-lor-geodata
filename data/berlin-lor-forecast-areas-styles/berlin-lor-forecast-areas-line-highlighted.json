@@ -1,0 +1,11 @@
+{
+  "id": "berlin-lor-forecast-areas-line",
+  "type": "line",
+  "source": "berlin-lor-forecast-areas",
+  "layout": {},
+  "paint": {
+    "line-color": "#83BE95",
+    "line-opacity": 1.0,
+    "line-width": 6
+  }
+}

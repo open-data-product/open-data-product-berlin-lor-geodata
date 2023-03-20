@@ -1,0 +1,10 @@
+{
+  "id": "berlin-lor-planning-areas-fill",
+  "type": "fill",
+  "source": "berlin-lor-planning-areas",
+  "layout": {},
+  "paint": {
+    "fill-color": "transparent",
+    "fill-opacity": 0.15
+  }
+}

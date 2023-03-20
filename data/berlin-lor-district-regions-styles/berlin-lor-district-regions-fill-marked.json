@@ -1,0 +1,10 @@
+{
+  "id": "berlin-lor-district-regions-fill",
+  "type": "fill",
+  "source": "berlin-lor-district-regions",
+  "layout": {},
+  "paint": {
+    "fill-color": "#D16639",
+    "fill-opacity": 0.15
+  }
+}
