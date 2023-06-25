@@ -2,13 +2,13 @@
 id: berlin-lor-geodata
 name: Berlin LOR Geodata
 metadata:
-  - ownership: Open Lifeworlds
-  - domain: geodata
-  - schema:
-      - id: unique feature ID (string)
-      - name: feature name (string)
-      - area: feature area in sqm (float)
-      - bounding_box: feature bounding box (float array)
+  ownership: Open Lifeworlds
+  domain: geodata
+  schema:
+    - id: unique feature ID (string)
+    - name: feature name (string)
+    - area: feature area in sqm (float)
+    - bounding_box: feature bounding box (float array)
 description: This data product provides Berlin geodata on different LOR hierarchy levels
 input_ports:
   - id: berlin-lor-districts
@@ -25,7 +25,7 @@ input_ports:
       name: Lebensweltlich orientierte Räume (LOR) - Prognoseräume (bis Ende 2020)
       author: Amt für Statistik Berlin-Brandenburg
       url: https://daten.odis-berlin.de/de/dataset/lor_prognoseraeume/
-      license:  CC-BY-3.0-Namensnennung
+      license: CC-BY-3.0-Namensnennung
       updated: 2021-09-09
     files:
       - https://tsb-opendata.s3.eu-central-1.amazonaws.com/lor_prognoseraeume/lor_prognoseraeume.geojson
