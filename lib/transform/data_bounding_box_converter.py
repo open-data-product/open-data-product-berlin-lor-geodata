@@ -11,7 +11,7 @@ target_projection_number = "4326"
 def convert_bounding_box(source_path, results_path, clean=False, quiet=False):
     # Iterate over files
     for subdir, dirs, files in os.walk(source_path):
-        for file_name in files:
+        for file_name in [file_name for file_name in sorted(files) if file_name.endswith(".geojson")]:
             subdir = subdir.replace(f"{source_path}/", "")
 
             # Make results path

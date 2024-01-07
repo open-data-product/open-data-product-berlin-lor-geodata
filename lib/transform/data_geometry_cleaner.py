@@ -1,6 +1,6 @@
 import json
 import os
-from collections import Sequence
+from collections.abc import Sequence
 from itertools import chain, count
 
 from lib.tracking_decorator import TrackingDecorator
@@ -10,7 +10,7 @@ from lib.tracking_decorator import TrackingDecorator
 def clean_data_geometry(source_path, results_path, clean=False, quiet=False):
     # Iterate over files
     for subdir, dirs, files in os.walk(source_path):
-        for file_name in files:
+        for file_name in [file_name for file_name in sorted(files) if file_name.endswith(".geojson")]:
             subdir = subdir.replace(f"{source_path}/", "")
 
             # Make results path

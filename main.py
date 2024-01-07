@@ -11,6 +11,7 @@ from lib.transform.data_property_cleaner import clean_data_properties
 from lib.transform.data_property_extender import extend_data_properties
 from lib.transform.data_copier import copy_data
 from lib.transform.data_projection_converter import convert_projection
+from lib.transform.data_lor_area_matcher import identify_lor_area_matches
 
 file_path = os.path.realpath(__file__)
 script_path = os.path.dirname(file_path)
@@ -62,8 +63,10 @@ def main(argv):
     convert_projection(source_path=workspace_path, results_path=workspace_path, clean=clean, quiet=quiet)
     convert_bounding_box(source_path=workspace_path, results_path=workspace_path, clean=clean, quiet=quiet)
 
+    identify_lor_area_matches(source_path=workspace_path, results_path=workspace_path, clean=clean, quiet=quiet)
+
     #
-    # Transform
+    # Load
     #
 
     load_data(source_path=workspace_path, results_path=data_path, clean=clean, quiet=quiet)
