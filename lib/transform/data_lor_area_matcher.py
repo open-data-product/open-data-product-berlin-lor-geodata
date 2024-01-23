@@ -2,13 +2,13 @@ import json
 import os
 
 import geopandas as gpd
+from geopandas import GeoDataFrame
 
 from lib.tracking_decorator import TrackingDecorator
 
 
 @TrackingDecorator.track_time
-def identify_lor_area_matches(source_path, results_path, intersection_ratio_threshold=0.9, area_tolerance=0.01, clean=False,
-                              quiet=False):
+def identify_lor_area_matches(source_path, results_path, area_tolerance=0.01, clean=False, quiet=False):
     matches = []
 
     for lor_area_type in ["forecast-areas", "district-regions", "planning-areas"]:
@@ -27,30 +27,42 @@ def identify_lor_area_matches(source_path, results_path, intersection_ratio_thre
         gdf_until_2020.set_crs("EPSG:4326", inplace=True)
         gdf_from_2021.set_crs("EPSG:4326", inplace=True)
 
-        # Iterate over both geojson files
-        for _, feature_until_2020 in gdf_until_2020.iterrows():
-            for _, feature_from_2021 in gdf_from_2021.iterrows():
-                # Calculate intersection area
-                intersection_area = feature_until_2020.geometry.intersection(feature_from_2021.geometry).area
-                intersection_ratio_until_2020 = intersection_area / feature_until_2020.geometry.area
-                intersection_ratio_from_2021 = intersection_area / feature_from_2021.geometry.area
-
-                # Calculate the area of each polygon
-                area_a = feature_until_2020.geometry.area
-                area_b = feature_from_2021.geometry.area
-
-                # Calculate the relative difference in areas
-                area_difference = abs(area_a - area_b) / max(area_a, area_b)
-
-                if intersection_ratio_until_2020 > intersection_ratio_threshold and intersection_ratio_from_2021 > intersection_ratio_threshold and area_difference < area_tolerance:
-                    lor_area_type_matches.append(
-                        {"until-2020": feature_until_2020['id'], 'from-2021': feature_from_2021['id']})
+        # Identify matches
+        lor_area_type_matches += identify_feature_matches(gdf_until_2020, "until-2020", gdf_from_2021, "from-2021",
+                                                          area_tolerance)
+        lor_area_type_matches += identify_feature_matches(gdf_from_2021, "from-2021", gdf_until_2020, "until-2020",
+                                                          area_tolerance)
 
         print(
             f"✓ Found {len(lor_area_type_matches)} matches in {lor_area_type} (until 2020: {gdf_until_2020_feature_count}, from 2021: {gdf_from_2021_feature_count})")
         matches += lor_area_type_matches
 
     write_json_file(os.path.join(results_path, "berlin-lor-matches", "berlin-lor-matches.json"), matches, clean, quiet)
+
+
+def identify_feature_matches(outer: GeoDataFrame, outer_label, inner: GeoDataFrame, inner_label, area_tolerance):
+    matches = []
+
+    for _, feature_outer in outer.iterrows():
+
+        feature_matches = []
+
+        for _, feature_inner in inner.iterrows():
+
+            # Calculate intersection area
+            intersection_area = feature_outer.geometry.intersection(feature_inner.geometry).area
+
+            # Calculate the area of each polygon
+            area_inner = feature_inner.geometry.area
+
+            # Check if inner area is within outer area
+            if intersection_area / area_inner > 1 - area_tolerance:
+                feature_matches.append(feature_inner['id'])
+
+        if len(feature_matches) > 0:
+            matches.append({feature_outer['id']: feature_matches})
+
+    return matches
 
 
 def write_json_file(file_path, json_content, clean, quiet):
