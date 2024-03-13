@@ -71,6 +71,9 @@ Additionally, styles to display geojson files in [Mapbox](https://www.mapbox.com
 * [berlin-lor-planning-areas-styles/berlin-lor-planning-areas-until-2020-centroid-symbol-theme-dark.json](https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-styles/berlin-lor-planning-areas-until-2020-centroid-symbol-theme-dark.json)
 * [berlin-lor-planning-areas-styles/berlin-lor-planning-areas-until-2020-centroid-symbol-theme-light.json](https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-styles/berlin-lor-planning-areas-until-2020-centroid-symbol-theme-light.json)
 
+Additionally, mapping between until-2020 and from-2021 taxonomy is available under the following URL
+* [berlin-lor-matches/berlin-lor-matches.json](https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-matches/berlin-lor-matches.json)
+
 ## Metadata
 
 ### Ownership

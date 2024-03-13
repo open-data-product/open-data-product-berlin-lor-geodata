@@ -128,6 +128,15 @@ output_ports:
       - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-styles/berlin-lor-planning-areas-line.json
       - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-styles/berlin-lor-planning-areas-until-2020-centroid-symbol-theme-dark.json
       - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-styles/berlin-lor-planning-areas-until-2020-centroid-symbol-theme-light.json
+  - id: berlin-lor-matches
+    metadata:
+      name: Berlin LOR geodata matches
+      author: Open Lifeworlds
+      url: https://github.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/tree/main/data
+      license: CC-BY-4.0
+      updated: 2024-03-14
+    files:
+      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-matches/berlin-lor-matches.json
 metrics:
   - quality:
       - completeness
