@@ -9,10 +9,19 @@ from lib.tracking_decorator import TrackingDecorator
 
 @TrackingDecorator.track_time
 def identify_lor_area_matches(source_path, results_path, area_tolerance=0.01, clean=False, quiet=False):
-    matches = []
+    """
+    Identifies overlaps in LOR areas between until-2020 and from-2021 taxonomy
+    :param source_path:
+    :param results_path:
+    :param area_tolerance:
+    :param clean:
+    :param quiet:
+    :return:
+    """
+    matches = {}
 
     for lor_area_type in ["forecast-areas", "district-regions", "planning-areas"]:
-        lor_area_type_matches = []
+        lor_area_type_matches = {}
 
         # Read geojson files
         gdf_until_2020 = gpd.read_file(os.path.join(source_path, f"berlin-lor-{lor_area_type}-until-2020",
@@ -27,21 +36,22 @@ def identify_lor_area_matches(source_path, results_path, area_tolerance=0.01, cl
         gdf_until_2020.set_crs("EPSG:4326", inplace=True)
         gdf_from_2021.set_crs("EPSG:4326", inplace=True)
 
-        # Identify matches
-        lor_area_type_matches += identify_feature_matches(gdf_until_2020, "until-2020", gdf_from_2021, "from-2021",
+        # Identify LOR areas of until-2020 that contain LOR areas of from-2021
+        lor_area_type_matches |= identify_feature_matches(gdf_until_2020, "until-2020", gdf_from_2021, "from-2021",
                                                           area_tolerance)
-        lor_area_type_matches += identify_feature_matches(gdf_from_2021, "from-2021", gdf_until_2020, "until-2020",
+        # Identify LOR areas of from-2021 that contain LOR areas of until-2020
+        lor_area_type_matches |= identify_feature_matches(gdf_from_2021, "from-2021", gdf_until_2020, "until-2020",
                                                           area_tolerance)
 
         print(
             f"✓ Found {len(lor_area_type_matches)} matches in {lor_area_type} (until 2020: {gdf_until_2020_feature_count}, from 2021: {gdf_from_2021_feature_count})")
-        matches += lor_area_type_matches
+        matches |= lor_area_type_matches
 
     write_json_file(os.path.join(results_path, "berlin-lor-matches", "berlin-lor-matches.json"), matches, clean, quiet)
 
 
 def identify_feature_matches(outer: GeoDataFrame, outer_label, inner: GeoDataFrame, inner_label, area_tolerance):
-    matches = []
+    matches = {}
 
     for _, feature_outer in outer.iterrows():
 
@@ -60,7 +70,7 @@ def identify_feature_matches(outer: GeoDataFrame, outer_label, inner: GeoDataFra
                 feature_matches.append(feature_inner['id'])
 
         if len(feature_matches) > 0:
-            matches.append({feature_outer['id']: feature_matches})
+            matches[feature_outer['id']] = feature_matches
 
     return matches
 

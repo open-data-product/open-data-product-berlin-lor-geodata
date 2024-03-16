@@ -25,6 +25,7 @@ This data product
 * [extends properties](../lib/transform/data_property_extender.py) by adding missing area property 
 * [converts geojson coordinate projection](../lib/transform/data_projection_converter.py) to polar coordinates (epsg:4326)
 * [calculates a bounding box](../lib/transform/data_bounding_box_converter.py) for each feature based on their coordinates
+* [matches LOR areas](../lib/transform/data_lor_area_matcher.py) between until-2020 and from-2021 nomenclature
 
 ## Output Ports
 
