@@ -1,4 +1,4 @@
-# Data Product Canvas - Berlin LOR geodata
+# Data Product Canvas - Berlin LOR Geodata
 
 ## Input Ports
 
