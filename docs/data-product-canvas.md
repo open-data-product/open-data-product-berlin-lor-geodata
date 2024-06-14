@@ -21,7 +21,7 @@ statements, or used data platform services.**
 
 This data product
 * [cleans geojson features](../lib/transform/data_property_cleaner.py) by applying properties such as `id`, `name` and `area` across all files 
-* [cleans geoson geometry](../lib/transform/data_geometry_cleaner.py) by removing exclaves (that prevent rendering using map services such as [Mapbox](https://www.mapbox.com/))
+* [cleans geojson geometry](../lib/transform/data_geometry_cleaner.py) by removing exclaves (that prevent rendering using map services such as [Mapbox](https://www.mapbox.com/))
 * [extends properties](../lib/transform/data_property_extender.py) by adding missing area property 
 * [converts geojson coordinate projection](../lib/transform/data_projection_converter.py) to polar coordinates (epsg:4326)
 * [calculates a bounding box](../lib/transform/data_bounding_box_converter.py) for each feature based on their coordinates
@@ -116,7 +116,7 @@ attributes**
 
 **Requirements and metrics such as accuracy, completeness, integrity, or compliance to Data Governance policies**
 
-Completeness of this data product is verified via [data_metrics.py](../lib/metrics/data_completeness.py).
+Completeness of this data product is verified via [data_completeness.py](../lib/metrics/data_completeness.py).
 
 ### Operational metrics
 
@@ -156,7 +156,7 @@ This data product is source-aligned since it only makes small adjustments in ter
 * **district**: (German: Bezirk)
 * **forecast area**: (German: Prognoseraum)
 * **district region**: (German: Bezirksregion)
-* **planning area**: a spatial unit whose spatial development is planned by the public authorities
+* **planning area**: (German: PLanungsraum) a spatial unit whose spatial development is planned by the public authorities
 
 ---
 This data product canvas uses the template
