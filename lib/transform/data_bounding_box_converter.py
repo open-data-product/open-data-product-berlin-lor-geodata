@@ -11,7 +11,9 @@ target_projection_number = "4326"
 def convert_bounding_box(source_path, results_path, clean=False, quiet=False):
     # Iterate over files
     for subdir, dirs, files in os.walk(source_path):
-        for file_name in [file_name for file_name in sorted(files) if file_name.endswith(".geojson")]:
+        for file_name in [
+            file_name for file_name in sorted(files) if file_name.endswith(".geojson")
+        ]:
             subdir = subdir.replace(f"{source_path}/", "")
 
             # Make results path
@@ -25,11 +27,16 @@ def convert_bounding_box(source_path, results_path, clean=False, quiet=False):
                 projection = str(geojson["crs"]["properties"]["name"])
                 projection_number = projection.split(":")[-1]
 
-                if projection_number == target_projection_number or projection_number == "CRS84":
+                if (
+                    projection_number == target_projection_number
+                    or projection_number == "CRS84"
+                ):
                     geojson_with_bounding_box = extend_by_bounding_box(geojson, clean)
 
                     with open(results_file_path, "w", encoding="utf-8") as geojson_file:
-                        json.dump(geojson_with_bounding_box, geojson_file, ensure_ascii=False)
+                        json.dump(
+                            geojson_with_bounding_box, geojson_file, ensure_ascii=False
+                        )
 
                 if not quiet:
                     print(f"✓ Convert {file_name}")
@@ -54,7 +61,6 @@ def extend_by_bounding_box(geojson, clean=False):
             coordinates = geometry["coordinates"]
 
             for coordinate in flatten_list(coordinates):
-
                 x = coordinate[0]
                 y = coordinate[1]
 

@@ -8,7 +8,9 @@ from lib.tracking_decorator import TrackingDecorator
 def extend_data_properties(source_path, results_path, clean=False, quiet=False):
     # Iterate over files
     for subdir, dirs, files in os.walk(source_path):
-        for file_name in [file_name for file_name in sorted(files) if file_name.endswith(".geojson")]:
+        for file_name in [
+            file_name for file_name in sorted(files) if file_name.endswith(".geojson")
+        ]:
             subdir = subdir.replace(f"{source_path}/", "")
 
             # Make results path

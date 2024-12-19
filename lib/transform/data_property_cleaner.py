@@ -8,7 +8,9 @@ from lib.tracking_decorator import TrackingDecorator
 def clean_data_properties(source_path, results_path, clean=False, quiet=False):
     # Iterate over files
     for subdir, dirs, files in os.walk(source_path):
-        for file_name in [file_name for file_name in sorted(files) if file_name.endswith(".geojson")]:
+        for file_name in [
+            file_name for file_name in sorted(files) if file_name.endswith(".geojson")
+        ]:
             subdir = subdir.replace(f"{source_path}/", "")
 
             # Make results path
@@ -44,7 +46,13 @@ def clean_properties(geojson):
         area = None
 
         # Iterate over potential ID properties
-        for id_property in ["Gemeinde_schluessel", "broker Dow", "PGR_ID", "BZR_ID", "PLR_ID"]:
+        for id_property in [
+            "Gemeinde_schluessel",
+            "broker Dow",
+            "PGR_ID",
+            "BZR_ID",
+            "PLR_ID",
+        ]:
             if id_property in properties:
                 id = properties[id_property]
 
@@ -56,8 +64,15 @@ def clean_properties(geojson):
                 changed = True
 
         # Iterate over potential name properties
-        for name_property in ["Gemeinde_name", "PROGNOSERA", "PGR_NAME", "BEZIRKSREG", "BZR_NAME", "PLANUNGSRA",
-                              "PLR_NAME"]:
+        for name_property in [
+            "Gemeinde_name",
+            "PROGNOSERA",
+            "PGR_NAME",
+            "BEZIRKSREG",
+            "BZR_NAME",
+            "PLANUNGSRA",
+            "PLR_NAME",
+        ]:
             if name_property in properties:
                 name = properties[name_property]
                 properties["name"] = name
@@ -73,8 +88,15 @@ def clean_properties(geojson):
                 changed = True
 
         # Drop other properties
-        for drop_property in ["Land_name", "Land_schluessel", "Schluessel_gesamt", "BEZ", "STAND", "BEZIRKSNAM",
-                              "DATUM_GUEL"]:
+        for drop_property in [
+            "Land_name",
+            "Land_schluessel",
+            "Schluessel_gesamt",
+            "BEZ",
+            "STAND",
+            "BEZIRKSNAM",
+            "DATUM_GUEL",
+        ]:
             if drop_property in properties:
                 properties.pop(drop_property, None)
                 changed = True
