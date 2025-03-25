@@ -2,7 +2,7 @@
 id: berlin-lor-geodata
 name: Berlin LOR Geodata
 metadata:
-  ownership: Open Lifeworlds
+  ownership: Open Data Product
   domain: geodata
   schema:
     - id: unique feature ID (string)
@@ -78,28 +78,28 @@ output_ports:
   - id: berlin-lor-geodata-geojson
     metadata:
       name: Berlin LOR geodata
-      author: Open Lifeworlds
-      url: https://github.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/tree/main/data
+      author: Open Data Product
+      url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data
       license: CC-BY-4.0
       updated: 2025-04-19
     files:
-      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-city/berlin-lor-city.geojson
-      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-districts/berlin-lor-districts.geojson
-      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-forecast-areas-until-2020/berlin-lor-forecast-areas-until-2020.geojson
-      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-forecast-areas-from-2021/berlin-lor-forecast-areas-from-2021.geojson
-      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-district-regions-until-2020/berlin-lor-district-regions-until-2020.geojson
-      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-district-regions-from-2021/berlin-lor-district-regions-from-2021.geojson
-      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-until-2020/berlin-lor-planning-areas-until-2020.geojson
-      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-from-2021/berlin-lor-planning-areas-from-2021.geojson
+      - https://raw.githubusercontent.com/open-data-product/open-data-product-berlin-lor-geodata/main/data/berlin-lor-city/berlin-lor-city.geojson
+      - https://raw.githubusercontent.com/open-data-product/open-data-product-berlin-lor-geodata/main/data/berlin-lor-districts/berlin-lor-districts.geojson
+      - https://raw.githubusercontent.com/open-data-product/open-data-product-berlin-lor-geodata/main/data/berlin-lor-forecast-areas-until-2020/berlin-lor-forecast-areas-until-2020.geojson
+      - https://raw.githubusercontent.com/open-data-product/open-data-product-berlin-lor-geodata/main/data/berlin-lor-forecast-areas-from-2021/berlin-lor-forecast-areas-from-2021.geojson
+      - https://raw.githubusercontent.com/open-data-product/open-data-product-berlin-lor-geodata/main/data/berlin-lor-district-regions-until-2020/berlin-lor-district-regions-until-2020.geojson
+      - https://raw.githubusercontent.com/open-data-product/open-data-product-berlin-lor-geodata/main/data/berlin-lor-district-regions-from-2021/berlin-lor-district-regions-from-2021.geojson
+      - https://raw.githubusercontent.com/open-data-product/open-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-until-2020/berlin-lor-planning-areas-until-2020.geojson
+      - https://raw.githubusercontent.com/open-data-product/open-data-product-berlin-lor-geodata/main/data/berlin-lor-planning-areas-from-2021/berlin-lor-planning-areas-from-2021.geojson
   - id: berlin-lor-matches
     metadata:
       name: Berlin LOR geodata matches
-      author: Open Lifeworlds
-      url: https://github.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/tree/main/data
+      author: Open Data Product
+      url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data
       license: CC-BY-4.0
       updated: 2024-03-14
     files:
-      - https://raw.githubusercontent.com/open-lifeworlds/open-lifeworlds-data-product-berlin-lor-geodata/main/data/berlin-lor-matches/berlin-lor-matches.json
+      - https://raw.githubusercontent.com/open-data-product/open-data-product-berlin-lor-geodata/main/data/berlin-lor-matches/berlin-lor-matches.json
 metrics:
   - quality:
       - completeness
