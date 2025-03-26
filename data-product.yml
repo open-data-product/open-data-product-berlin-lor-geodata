@@ -1,29 +1,30 @@
 ---
 id: berlin-lor-geodata
-name: Berlin LOR Geodata
 metadata:
-  ownership: Open Data Product
-  domain: geodata
+  name: Berlin LOR geodata
+  owner: Open Data Product
+  description: Data product providing Berlin geodata of LORs
+  url: https://github.com/open-data-product/open-data-product-berlin-electoral-districts-geodata
+  license: CC-BY 4.0
+  updated: 2025-05-30
   schema:
-    - id: unique feature ID (string)
-    - name: feature name (string)
-    - area: feature area in sqm (float)
-    - bounding_box: feature bounding box (float array)
-description: This data product provides Berlin geodata on different LOR hierarchy levels
 input_ports:
   - id: berlin-lor-districts
     metadata:
       name: Bezirke
-      author: Geoportal Berlin
+      owner: Geoportal Berlin
+      description:
       url: https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/
       license:
       updated: 2017-12-31
+    schema:
     files:
       - https://tsb-opendata.s3.eu-central-1.amazonaws.com/bezirksgrenzen/bezirksgrenzen.geojson
   - id: berlin-lor-forecast-areas-until-2020
     metadata:
       name: Lebensweltlich orientierte Räume (LOR) - Prognoseräume (bis Ende 2020)
-      author: Amt für Statistik Berlin-Brandenburg
+      owner: Amt für Statistik Berlin-Brandenburg
+      description:
       url: https://daten.odis-berlin.de/de/dataset/lor_prognoseraeume/
       license: CC-BY-3.0-Namensnennung
       updated: 2021-09-09
@@ -32,7 +33,8 @@ input_ports:
   - id: berlin-lor-forecast-areas-from-2021
     metadata:
       name: Lebensweltlich orientierte Räume (LOR) - Prognoseräume (ab 2021)
-      author: Amt für Statistik Berlin-Brandenburg
+      owner: Amt für Statistik Berlin-Brandenburg
+      description:
       url: https://daten.odis-berlin.de/de/dataset/lor_prognoseraeume_2021/
       license: CC-BY-3.0-Namensnennung
       updated: 2021-09-09
@@ -41,7 +43,8 @@ input_ports:
   - id: berlin-lor-district-regions-until-2020
     metadata:
       name: Lebensweltlich orientierte Räume (LOR) - Bezirksregionen (bis Ende 2020)
-      author: Amt für Statistik Berlin-Brandenburg
+      owner: Amt für Statistik Berlin-Brandenburg
+      description:
       url: https://daten.odis-berlin.de/de/dataset/lor_bezirksregionen/
       license: CC-BY-3.0-Namensnennung
       updated: 2021-09-09
@@ -50,7 +53,8 @@ input_ports:
   - id: berlin-lor-district-regions-from-2021
     metadata:
       name: Lebensweltlich orientierte Räume (LOR) - Bezirksregionen (seit 2021)
-      author: Amt für Statistik Berlin-Brandenburg
+      owner: Amt für Statistik Berlin-Brandenburg
+      description:
       url: https://daten.odis-berlin.de/de/dataset/lor_bezirksregionen/
       license: CC-BY-3.0-Namensnennung
       updated: 2021-09-09
@@ -59,7 +63,8 @@ input_ports:
   - id: berlin-lor-planning-areas-until-2020
     metadata:
       name: Lebensweltlich orientierte Räume (LOR) - Planungsräume (bis Ende 2020)
-      author: Amt für Statistik Berlin-Brandenburg
+      owner: Amt für Statistik Berlin-Brandenburg
+      description:
       url: https://daten.odis-berlin.de/de/dataset/lor_bezirksregionen/
       license: CC-BY-3.0-Namensnennung
       updated: 2021-09-09
@@ -68,17 +73,34 @@ input_ports:
   - id: berlin-lor-planning-areas-from-2021
     metadata:
       name: Lebensweltlich orientierte Räume (LOR) - Planungsräume (bis Ende 2020)
-      author: Amt für Statistik Berlin-Brandenburg
+      owner: Amt für Statistik Berlin-Brandenburg
+      description:
       url: https://daten.odis-berlin.de/de/dataset/lor_bezirksregionen/
       license: CC-BY-3.0-Namensnennung
       updated: 2021-09-09
     files:
       - https://tsb-opendata.s3.eu-central-1.amazonaws.com/lor_planungsgraeume_2021/lor_planungsraeume_2021.geojson
+transformation_steps:
+  - name: Geojson converter
+    path: lib/transform/data_geojson_converter.py
+    description: converts shape files into geojson
+  - name: Property converter
+    path: lib/transform/data_property_converter.py
+    description: renames and removes properties of geojson features
+  - name: Geometry converter
+    path: lib/transform/data_geometry_converter.py
+    description: converts inconsistent geometry
+  - name: Projection converter
+    path: lib/transform/data_projection_converter.py
+    description: converts geojson to polar projection (epsg:4326)
+  - name: Bounding box converter
+    path: lib/transform/data_bounding_box_converter.py
+    description: adds a bounding box to each feature
 output_ports:
   - id: berlin-lor-geodata-geojson
     metadata:
       name: Berlin LOR geodata
-      author: Open Data Product
+      owner: Open Data Product
       url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data
       license: CC-BY-4.0
       updated: 2025-04-19
@@ -94,17 +116,24 @@ output_ports:
   - id: berlin-lor-matches
     metadata:
       name: Berlin LOR geodata matches
-      author: Open Data Product
+      owner: Open Data Product
       url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data
       license: CC-BY-4.0
       updated: 2024-03-14
     files:
       - https://raw.githubusercontent.com/open-data-product/open-data-product-berlin-lor-geodata/main/data/berlin-lor-matches/berlin-lor-matches.json
-metrics:
-  - quality:
-      - completeness
-  - operational:
+observability:
+  quality:
+  operational:
+  slas:
+  security:
+consumers:
+  - projects that display LORs
+  - other data products that combine geospatial data with statistics data
+use_cases:
+  - to display data related to LORs in Berlin on an interactive map
 classification: source-aligned
+ubiquitous_language:
 tags:
   - berlin
   - lor

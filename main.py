@@ -2,6 +2,7 @@ import getopt
 import os
 import sys
 
+from config.data_product_manifest_loader import load_data_product_manifest
 from lib.extract.data_extractor import extract_data
 from lib.load.data_loader import load_data
 from lib.tracking_decorator import TrackingDecorator
@@ -48,6 +49,8 @@ def main(argv):
     raw_path = os.path.join(script_path, "raw")
     workspace_path = os.path.join(script_path, "workspace")
     data_path = os.path.join(script_path, "data")
+
+    data_product_manifest = load_data_product_manifest(config_path=script_path)
 
     #
     # Extract
