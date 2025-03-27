@@ -1,0 +1,94 @@
+---
+input_ports:
+  - id: berlin-lor-districts
+    files:
+      - source_file_name: bezirksgrenzen.geojson
+        target_file_name: berlin-lor-districts.geojson
+        target_projection_number: 4326
+        properties:
+          - { name: Gemeinde_schluessel, rename: id, last_chars: 2 }
+          - { name: Gemeinde_name, rename: name }
+          - name: area
+            mapping:
+              "01": 39_340_000
+              "02": 20_360_000
+              "03": 103_100_000
+              "04": 59_760_000
+              "05": 91_740_000
+              "06": 102_400_000
+              "07": 52_930_000
+              "08": 44_890_000
+              "09": 167_410_000
+              "10": 61_770_000
+              "11": 52_020_000
+              "12": 89_190_000
+          - { name: gml_id, remove: True }
+          - { name: Land_name, remove: True }
+          - { name: Land_schluessel, remove: True }
+          - { name: Schluessel_gesamt, remove: True }
+  - id: berlin-lor-forecast-areas-until-2020
+    files:
+      - source_file_name: lor_prognoseraeume.geojson
+        target_file_name: berlin-lor-forecast-areas-until-2020.geojson
+        target_projection_number: 4326
+        properties:
+          - { name: "broker Dow", rename: id }
+          - { name: PROGNOSERA, rename: name }
+          - { name: FLAECHENGR, rename: area }
+          - { name: BEZIRKSNAM, remove: True }
+          - { name: DATUM_GUEL, remove: True }
+  - id: berlin-lor-forecast-areas-from-2021
+    files:
+      - source_file_name: lor_prognoseraeume_2021.geojson
+        target_file_name: berlin-lor-forecast-areas-from-2021.geojson
+        target_projection_number: 4326
+        properties:
+          - { name: PGR_ID, rename: id }
+          - { name: PGR_NAME, rename: name }
+          - { name: GROESSE_M2, rename: area }
+          - { name: BEZ, remove: True }
+          - { name: STAND, remove: True }
+  - id: berlin-lor-district-regions-until-2020
+    files:
+      - source_file_name: lor_bezirksregionen.geojson
+        target_file_name: berlin-lor-district-regions-until-2020.geojson
+        target_projection_number: 4326
+        properties:
+          - { name: "broker Dow", rename: id }
+          - { name: BEZIRKSREG, rename: name }
+          - { name: FLAECHENGR, rename: area }
+          - { name: BEZIRKSNAM, remove: True }
+          - { name: DATUM_GUEL, remove: True }
+  - id: berlin-lor-district-regions-from-2021
+    files:
+      - source_file_name: lor_bezirksregionen_2021.geojson
+        target_file_name: berlin-lor-district-regions-from-2021.geojson
+        target_projection_number: 4326
+        properties:
+          - { name: BZR_ID, rename: id }
+          - { name: BZR_NAME, rename: name }
+          - { name: GROESSE_m2, rename: area }
+          - { name: BEZ, remove: True }
+          - { name: STAND, remove: True }
+  - id: berlin-lor-planning-areas-until-2020
+    files:
+      - source_file_name: lor_planungsraeume.geojson
+        target_file_name: berlin-lor-planning-areas-until-2020.geojson
+        target_projection_number: 4326
+        properties:
+          - { name: "broker Dow", rename: id }
+          - { name: PLANUNGSRA, rename: name }
+          - { name: FLAECHENGR, rename: area }
+          - { name: BEZIRKSNAM, remove: True }
+          - { name: DATUM_GUEL, remove: True }
+  - id: berlin-lor-planning-areas-from-2021
+    files:
+      - source_file_name: lor_planungsraeume_2021.geojson
+        target_file_name: berlin-lor-planning-areas-from-2021.geojson
+        target_projection_number: 4326
+        properties:
+          - { name: PLR_ID, rename: id }
+          - { name: PLR_NAME, rename: name }
+          - { name: GROESSE_M2, rename: area }
+          - { name: BEZ, remove: True }
+          - { name: STAND, remove: True }

@@ -25,42 +25,46 @@ def identify_lor_area_matches(
     for lor_area_type in ["forecast-areas", "district-regions", "planning-areas"]:
         lor_area_type_matches = {}
 
-        # Read geojson files
-        gdf_until_2020 = gpd.read_file(
-            os.path.join(
-                source_path,
-                f"berlin-lor-{lor_area_type}-until-2020",
-                f"berlin-lor-{lor_area_type}-until-2020.geojson",
+        try:
+            gdf_until_2020_file_path = os.path.join(
+                    source_path,
+                    f"berlin-lor-{lor_area_type}-until-2020",
+                    f"berlin-lor-{lor_area_type}-until-2020.geojson",
+                )
+
+            gdf_from_2021_file_path = os.path.join(
+                    source_path,
+                    f"berlin-lor-{lor_area_type}-from-2021",
+                    f"berlin-lor-{lor_area_type}-from-2021.geojson",
+                )
+
+            # Read geojson files
+            gdf_until_2020 = gpd.read_file(gdf_until_2020_file_path)
+            gdf_from_2021 = gpd.read_file(gdf_from_2021_file_path)
+
+            # Count features
+            gdf_until_2020_feature_count = gdf_until_2020.index.size
+            gdf_from_2021_feature_count = gdf_from_2021.index.size
+
+            # Set coordinate reference system
+            gdf_until_2020.set_crs("EPSG:4326", inplace=True)
+            gdf_from_2021.set_crs("EPSG:4326", inplace=True)
+
+            # Identify LOR areas of until-2020 that contain LOR areas of from-2021
+            lor_area_type_matches |= identify_feature_matches(
+                gdf_until_2020, "until-2020", gdf_from_2021, "from-2021", area_tolerance
             )
-        )
-        gdf_from_2021 = gpd.read_file(
-            os.path.join(
-                source_path,
-                f"berlin-lor-{lor_area_type}-from-2021",
-                f"berlin-lor-{lor_area_type}-from-2021.geojson",
+            # Identify LOR areas of from-2021 that contain LOR areas of until-2020
+            lor_area_type_matches |= identify_feature_matches(
+                gdf_from_2021, "from-2021", gdf_until_2020, "until-2020", area_tolerance
             )
-        )
 
-        gdf_until_2020_feature_count = gdf_until_2020.index.size
-        gdf_from_2021_feature_count = gdf_from_2021.index.size
-
-        # Set coordinate reference system
-        gdf_until_2020.set_crs("EPSG:4326", inplace=True)
-        gdf_from_2021.set_crs("EPSG:4326", inplace=True)
-
-        # Identify LOR areas of until-2020 that contain LOR areas of from-2021
-        lor_area_type_matches |= identify_feature_matches(
-            gdf_until_2020, "until-2020", gdf_from_2021, "from-2021", area_tolerance
-        )
-        # Identify LOR areas of from-2021 that contain LOR areas of until-2020
-        lor_area_type_matches |= identify_feature_matches(
-            gdf_from_2021, "from-2021", gdf_until_2020, "until-2020", area_tolerance
-        )
-
-        print(
-            f"✓ Found {len(lor_area_type_matches)} matches in {lor_area_type} (until 2020: {gdf_until_2020_feature_count}, from 2021: {gdf_from_2021_feature_count})"
-        )
-        matches |= lor_area_type_matches
+            print(
+                f"✓ Found {len(lor_area_type_matches)} matches in {lor_area_type} (until 2020: {gdf_until_2020_feature_count}, from 2021: {gdf_from_2021_feature_count})"
+            )
+            matches |= lor_area_type_matches
+        except Exception as e:
+            print(f"✗️ Exception: {str(e)}")
 
     write_json_file(
         os.path.join(results_path, "berlin-lor-matches", "berlin-lor-matches.json"),

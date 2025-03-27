@@ -7,6 +7,14 @@ from lib.tracking_decorator import TrackingDecorator
 
 @TrackingDecorator.track_time
 def combine_districts_into_city(source_path, results_path, clean=False, quiet=False):
+    """
+    Combines district geojson files into city
+    :param source_path: source path
+    :param results_path: results path
+    :param clean: clean
+    :param quiet: quiet
+    :return:
+    """
     source_file_path = os.path.join(
         source_path, "berlin-lor-districts", "berlin-lor-districts.geojson"
     )
