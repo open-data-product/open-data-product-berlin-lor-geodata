@@ -27,16 +27,16 @@ def identify_lor_area_matches(
 
         try:
             gdf_until_2020_file_path = os.path.join(
-                    source_path,
-                    f"berlin-lor-{lor_area_type}-until-2020",
-                    f"berlin-lor-{lor_area_type}-until-2020.geojson",
-                )
+                source_path,
+                f"berlin-lor-{lor_area_type}-until-2020",
+                f"berlin-lor-{lor_area_type}-until-2020.geojson",
+            )
 
             gdf_from_2021_file_path = os.path.join(
-                    source_path,
-                    f"berlin-lor-{lor_area_type}-from-2021",
-                    f"berlin-lor-{lor_area_type}-from-2021.geojson",
-                )
+                source_path,
+                f"berlin-lor-{lor_area_type}-from-2021",
+                f"berlin-lor-{lor_area_type}-from-2021.geojson",
+            )
 
             # Read geojson files
             gdf_until_2020 = gpd.read_file(gdf_until_2020_file_path)

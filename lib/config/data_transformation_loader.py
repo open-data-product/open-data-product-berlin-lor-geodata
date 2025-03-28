@@ -10,10 +10,12 @@ from yaml.constructor import ConstructorError
 
 from lib.tracking_decorator import TrackingDecorator
 
+
 @dataclass
 class Add:
     id: str
     value: str
+
 
 @dataclass
 class Property:
