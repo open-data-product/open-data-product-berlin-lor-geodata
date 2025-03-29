@@ -8,6 +8,7 @@ from config.data_transformation_loader import load_data_transformation
 from config.odps_loader import load_odps
 from documentation.data_product_canvas_generator import generate_data_product_canvas
 from documentation.data_product_manifest_updater import update_data_product_manifest
+from documentation.odps_canvas_generator import generate_odps_canvas
 from lib.extract.data_extractor import extract_data
 from lib.transform.data_bounding_box_converter import convert_bounding_box
 from lib.transform.data_combiner import combine_districts_into_city
@@ -117,6 +118,11 @@ def main(clean, quiet):
 
     generate_data_product_canvas(
         data_product_manifest=data_product_manifest,
+        docs_path=docs_path,
+    )
+
+    generate_odps_canvas(
+        odps=odps,
         docs_path=docs_path,
     )
 
