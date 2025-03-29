@@ -1,0 +1,24 @@
+---
+schema: https://opendataproducts.org/v3.1/schema/odps.yaml
+version: 3.1
+product:
+  dataHolder:
+    URL: "https://opendataproduct.de"
+  en:
+    name: "Berlin LOR Geodata"
+    productID: "berlin-lor-geodata"
+    valueProposition: "Providing Berlin geodata of LOR areas"
+    description: "Data product providing Berlin geodata of LOR areas"
+    productSeries: "Berlin Geodata Series"
+    visibility: "public"
+    status: "active"
+    version: "1.0"
+    categories:
+      - geodata
+    tags:
+      - Berlin
+      - LOR
+    type: "source-aligned"
+    logoURL: "https://raw.githubusercontent.com/open-data-product/open-data-product-berlin-lor-geodata/refs/heads/main/logo-with-text.png"
+    OutputFileFormats:
+      - geojson

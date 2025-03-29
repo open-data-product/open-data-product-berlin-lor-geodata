@@ -4,6 +4,7 @@ import sys
 
 from config.data_product_manifest_loader import load_data_product_manifest
 from config.data_transformation_loader import load_data_transformation
+from config.odps_loader import load_odps
 from documentation.data_product_canvas_generator import generate_data_product_canvas
 from documentation.data_product_manifest_updater import update_data_product_manifest
 from lib.extract.data_extractor import extract_data
@@ -54,6 +55,7 @@ def main(argv):
 
     data_product_manifest = load_data_product_manifest(config_path=script_path)
     data_transformation = load_data_transformation(config_path=script_path)
+    odps = load_odps(config_path=script_path)
 
     #
     # Extract
