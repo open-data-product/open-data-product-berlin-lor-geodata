@@ -38,6 +38,7 @@ Run this command to generate and activate a virtual environment.
 
 ```shell
 uv venv
+source .venv/bin/activate
 ```
 
 Run this command to start the main script.
