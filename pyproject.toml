@@ -1,15 +1,14 @@
 [project]
 name = "open-data-product-berlin-lor-geodata"
 version = "0.1.0"
-description = "Add your description here"
+description = "Source-aligned data product providing Berlin geodata of LORs"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
     "click>=8.2.1",
-    "dacite>=1.9.2",
-    "geopandas==0.14.4",
-    "pyproj==3.7.0",
-    "pyyaml==6.0.1",
-    "requests==2.31.0",
-    "tqdm==4.65.0",
+    "open-data-product-python-lib",
 ]
+
+[tool.uv.sources]
+open-data-product-python-lib = { git = "https://github.com/open-data-product/open-data-product-python-lib.git" }
+

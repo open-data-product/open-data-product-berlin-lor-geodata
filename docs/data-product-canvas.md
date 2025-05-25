@@ -7,7 +7,7 @@
 * description: Data product providing Berlin geodata of LORs
 * url: https://github.com/open-data-product/open-data-product-berlin-electoral-districts-geodata
 * license: CC-BY 4.0
-* updated: 2025-06-01
+* updated: 2025-06-21
 
 ## Input Ports
 
@@ -104,7 +104,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-city
 * license: CC-BY 4.0
-* updated: 2025-06-01
+* updated: 2025-06-21
 
 **Files**
 
@@ -115,7 +115,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-district-regions-from-2021
 * license: CC-BY 4.0
-* updated: 2025-06-01
+* updated: 2025-06-21
 
 **Files**
 
@@ -126,7 +126,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-district-regions-until-2020
 * license: CC-BY 4.0
-* updated: 2025-06-01
+* updated: 2025-06-21
 
 **Files**
 
@@ -137,7 +137,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-districts
 * license: CC-BY 4.0
-* updated: 2025-06-01
+* updated: 2025-06-21
 
 **Files**
 
@@ -148,7 +148,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-forecast-areas-from-2021
 * license: CC-BY 4.0
-* updated: 2025-06-01
+* updated: 2025-06-21
 
 **Files**
 
@@ -159,7 +159,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-forecast-areas-until-2020
 * license: CC-BY 4.0
-* updated: 2025-06-01
+* updated: 2025-06-21
 
 **Files**
 
@@ -170,7 +170,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-planning-areas-from-2021
 * license: CC-BY 4.0
-* updated: 2025-06-01
+* updated: 2025-06-21
 
 **Files**
 
@@ -181,7 +181,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-planning-areas-until-2020
 * license: CC-BY 4.0
-* updated: 2025-06-01
+* updated: 2025-06-21
 
 **Files**
 
@@ -192,7 +192,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/03-gold/berlin-lor-matches
 * license: CC-BY 4.0
-* updated: 2025-06-01
+* updated: 2025-06-21
 
 **Files**
 
