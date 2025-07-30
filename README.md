@@ -3,13 +3,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/open-data-product/open-data-product-berlin-lor-geodata">
-    <img src="logo-with-text.png" alt="Logo" height="80">
+    <img src="logo-with-text.png" alt="Logo" style="height: 80px; ">
   </a>
 
   <h1 align="center">Berlin LOR Geodata</h1>
 
   <p align="center">
-    Data product providing geodata of LOR areas</a> 
+    Data product providing geodata of LOR areas
   </p>
 </p>
 

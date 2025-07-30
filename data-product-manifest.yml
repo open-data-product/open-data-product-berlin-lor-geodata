@@ -4,7 +4,7 @@ metadata:
   name: Berlin LOR geodata
   owner: Open Data Product
   description: Data product providing Berlin geodata of LORs
-  url: https://github.com/open-data-product/open-data-product-berlin-electoral-districts-geodata
+  url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata
   license: CC-BY 4.0
   updated: 2025-06-21
   schema:
