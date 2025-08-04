@@ -5,9 +5,9 @@
 
 * owner: Open Data Product
 * description: Data product providing Berlin geodata of LORs
-* url: https://github.com/open-data-product/open-data-product-berlin-electoral-districts-geodata
+* url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata
 * license: CC-BY 4.0
-* updated: 2025-06-21
+* updated: 2025-08-20
 
 ## Input Ports
 
@@ -89,13 +89,13 @@
 
 ## Transformation Steps
 
-* [Geojson converter](../lib/transform/data_geojson_converter.py) converts shape files into geojson
-* [Property converter](../lib/transform/data_property_converter.py) renames and removes properties of geojson features
-* [Geometry converter](../lib/transform/data_geometry_converter.py) converts inconsistent geometry
-* [Projection converter](../lib/transform/data_projection_converter.py) converts geojson to polar projection (epsg:4326)
-* [Data combiner](../lib/transform/data_combiner.py) combines district geojson files into city
-* [Bounding box converter](../lib/transform/data_bounding_box_converter.py) adds a bounding box to each feature
-* [LOR area matcher](../lib/transform/data_lor_area_matcher.py) identifies overlaps in LOR areas between until-2020 and from-2021 taxonomy
+* [Geojson converter](lib/transform/data_geojson_converter.py) converts shape files into geojson
+* [Property converter](lib/transform/data_property_converter.py) renames and removes properties of geojson features
+* [Geometry converter](lib/transform/data_geometry_converter.py) converts inconsistent geometry
+* [Projection converter](lib/transform/data_projection_converter.py) converts geojson to polar projection (epsg:4326)
+* [Data combiner](lib/transform/data_combiner.py) combines district geojson files into city
+* [Bounding box converter](lib/transform/data_bounding_box_converter.py) adds a bounding box to each feature
+* [LOR area matcher](lib/transform/data_lor_area_matcher.py) identifies overlaps in LOR areas between until-2020 and from-2021 taxonomy
 
 ## Output Ports
 
@@ -104,7 +104,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-city
 * license: CC-BY 4.0
-* updated: 2025-06-21
+* updated: 2025-08-20
 
 **Files**
 
@@ -115,7 +115,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-district-regions-from-2021
 * license: CC-BY 4.0
-* updated: 2025-06-21
+* updated: 2025-08-20
 
 **Files**
 
@@ -126,7 +126,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-district-regions-until-2020
 * license: CC-BY 4.0
-* updated: 2025-06-21
+* updated: 2025-08-20
 
 **Files**
 
@@ -137,7 +137,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-districts
 * license: CC-BY 4.0
-* updated: 2025-06-21
+* updated: 2025-08-20
 
 **Files**
 
@@ -148,7 +148,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-forecast-areas-from-2021
 * license: CC-BY 4.0
-* updated: 2025-06-21
+* updated: 2025-08-20
 
 **Files**
 
@@ -159,7 +159,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-forecast-areas-until-2020
 * license: CC-BY 4.0
-* updated: 2025-06-21
+* updated: 2025-08-20
 
 **Files**
 
@@ -170,7 +170,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-planning-areas-from-2021
 * license: CC-BY 4.0
-* updated: 2025-06-21
+* updated: 2025-08-20
 
 **Files**
 
@@ -181,7 +181,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/02-silver/berlin-lor-planning-areas-until-2020
 * license: CC-BY 4.0
-* updated: 2025-06-21
+* updated: 2025-08-20
 
 **Files**
 
@@ -192,7 +192,7 @@
 * owner: Open Data Product
 * url: https://github.com/open-data-product/open-data-product-berlin-lor-geodata/tree/main/data/03-gold/berlin-lor-matches
 * license: CC-BY 4.0
-* updated: 2025-06-21
+* updated: 2025-08-20
 
 **Files**
 

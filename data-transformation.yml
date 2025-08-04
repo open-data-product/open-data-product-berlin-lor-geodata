@@ -1,5 +1,9 @@
 ---
 input_ports:
+  - id: berlin-lor-city
+    files:
+      - source_file_name: berlin-lor-city.geojson
+        target_file_name: berlin-lor-city.geojson
   - id: berlin-lor-districts
     files:
       - source_file_name: bezirksgrenzen.geojson
