@@ -1,11 +1,20 @@
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#     "click>=8.2.1",
+#     "open-data-product-python-lib",
+# ]
+#
+# [tool.uv.sources]
+# open-data-product-python-lib = { git = "https://github.com/open-data-product/open-data-product-python-lib.git" }
+# ///
+
 import os
 import sys
+
+import click
 from opendataproduct.config.data_product_manifest_loader import (
     load_data_product_manifest,
-)
-import click
-from opendataproduct.config.data_transformation_silver_loader import (
-    load_data_transformation_silver,
 )
 from opendataproduct.config.geodata_transformation_loader import load_data_transformation
 from opendataproduct.config.odps_loader import load_odps
